@@ -58,3 +58,22 @@ end
 def current_player (board)
   turn_count(board) % 2 == 0 ? "X" : "O"
 end
+
+def won?(board)
+  b_size = board.size - 1
+  (0..b_size).each do |pos|
+    if position_taken?(board, pos)
+      marker = board[pos]
+      WIN_COMBINATIONS.each do |combo|
+        if combo[0] == pos
+          if combo.all? {|i| board[i] == marker}
+            return combo
+          end
+        end
+      end
+    end
+  end
+  false
+end
+
+
