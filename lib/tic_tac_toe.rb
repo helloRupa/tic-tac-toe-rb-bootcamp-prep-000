@@ -24,3 +24,10 @@ end
 def move (board, idx, token)
     board[idx] = token
 end
+
+def position_taken? (board, idx)
+  if board[idx] == "X" || board[idx] == "O"
+    return true
+  end
+  false
+end
