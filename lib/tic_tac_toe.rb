@@ -31,3 +31,14 @@ def position_taken? (board, idx)
   end
   false
 end
+
+def valid_move? (board, idx)
+  if idx > -1 && idx < 9
+    if !position_taken?(board, idx)
+      return true
+    end
+  end
+  false
+end
+
+
