@@ -76,4 +76,27 @@ def won?(board)
   false
 end
 
+def full?(board)
+  board.all? {|pos| pos == "X" || pos == "O"}
+end
 
+def draw?(board)
+  if !won?(board) && full?(board)
+    return true
+  end
+  false
+end
+
+def over?(board)
+  if won?(board) || full?(board) || draw?(board)
+    return true
+  end
+  false
+end
+
+def winner(board)
+  win = won?(board)
+  if win
+    return board[win[0]]
+  end
+end
