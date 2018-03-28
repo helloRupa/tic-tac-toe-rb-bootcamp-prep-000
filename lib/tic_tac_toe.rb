@@ -105,4 +105,11 @@ def play(board)
   if !over?(board)
     turn(board)
   end
+  if won?(board)
+    winner = winner(board)
+    puts "Congratulations #{winner}!"
+  end
+  if draw?(board)
+    puts "Sorry, it's a draw."
+  end
 end
